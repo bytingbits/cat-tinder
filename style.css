@@ -1,0 +1,121 @@
+/* General Body Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.app-container {
+    text-align: center;
+    width: 90vw;
+    max-width: 350px;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* The area where cards will stack */
+.swipe-deck {
+    position: relative;
+    width: 100%;
+    height: 450px; /* Fixed height for the card area */
+    margin-bottom: 20px;
+}
+
+/* Individual Cat Card Styles */
+.cat-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: grab;
+    will-change: transform; /* Performance optimization for animations */
+    transition: transform 0.3s ease; /* Smooth transition for when the card snaps back */
+    display: flex;
+    align-items: flex-end;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    overflow: hidden; /* Ensures overlays stay within the card's rounded corners */
+}
+
+/* Overlays for 'Like' and 'Nope' */
+.cat-card .choice {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: 0; /* Hidden by default */
+    transform: rotate(-20deg);
+}
+
+.cat-card .choice.like {
+    color: #4CAF50;
+    border: 4px solid #4CAF50;
+}
+
+.cat-card .choice.nope {
+    left: auto;
+    right: 20px;
+    color: #F44336;
+    border: 4px solid #F44336;
+    transform: rotate(20deg);
+}
+
+
+/* Action Buttons */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.actions button {
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.actions button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.actions button:active {
+    transform: scale(1.05);
+}
+
+#nope svg {
+    stroke: #F44336; /* Red 'X' */
+}
+
+#like svg {
+    stroke: #4CAF50; /* Green heart */
+}
